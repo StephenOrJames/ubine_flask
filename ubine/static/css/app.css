@@ -2,17 +2,13 @@ body {
     background-color: #EEE;
 }
 
-
 header {
-    /*background-color: #2199E8;*/
-    /*border-bottom-left-radius: 30px;*/
-    /*border-bottom-right-radius: 30px;*/
     color: #EEE;
-    /*background: linear-gradient(#57b9e8, #147cc0);*/
-    background: linear-gradient(#1a96c0, #0e74c0);
+    background: linear-gradient(#2EB0FF, dodgerblue);
     text-align: center;
 }
 
+/* Main heading */
 header h1 a {
     color: #FFF;
 }
@@ -21,13 +17,23 @@ header h1 a:hover {
     color: #DDD;
 }
 
+/* Navigation menu */
+header nav {
+    background-color: dodgerblue;
+    border-bottom: 2px solid dodgerblue; /* remains when background-color is changed by :hover/:focus */
+}
+header nav a {
+    color: #fff;
+}
+header nav a:focus,
+header nav a:hover {
+    color: dodgerblue;
+    background-color: #EEEEEE;
+}
+
 main div.callout {
     margin-top: 20px;
     text-align: center;
-}
-
-main .invisible {
-    display: none;
 }
 
 main fieldset.fieldset legend {
