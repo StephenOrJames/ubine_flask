@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Rooms{% endblock %}
+{% block content %}
+    <h2>Where is the room?</h2>
+
+    <div>
+        The Ellicott Complex is a group of residence halls at the University at Buffalo, and is made up of six quadrangles.
+        Each quadrangle is comprised of at least six buildings each, and each building can have up to ten floors.
+        How, then, can one easily locate a room, given only the quadrangle and the room number?
+        UBinE is here to help!
+    </div>
+
+    {% if building %}
+        <div class="callout success">{{ number }} {{ quadrangle|replace("_", " ")|title }} is in building {{ building }}.</div>
+    {% elif number or quadrangle %}
+        <div class="callout alert">We could not find your search query.</div>
+    {% endif %}
+
+    <form method="get">
+        <fieldset class="fieldset">
+            <legend>Locate a Room</legend>
+
+            <label>
+                Quadrangle
+                <select name="quadrangle" required="required">
+                    <option selected="selected" disabled="disabled">Select a Quadrangle</option>
+                    <option value="porter">Porter</option>
+                    <option value="red_jacket">Red Jacket</option>
+                    <!-- TODO: add the others -->
+                </select>
+            </label>
+
+            <label>
+                Room number
+                <input type="number" name="number" required="required" placeholder="Room number">
+            </label>
+            <button type="submit" class="button expanded">Search</button>
+        </fieldset>
+    </form>
+{% endblock %}

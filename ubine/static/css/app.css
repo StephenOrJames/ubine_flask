@@ -1,0 +1,40 @@
+body {
+    background-color: #EEE;
+}
+
+
+header {
+    /*background-color: #2199E8;*/
+    /*border-bottom-left-radius: 30px;*/
+    /*border-bottom-right-radius: 30px;*/
+    color: #EEE;
+    /*background: linear-gradient(#57b9e8, #147cc0);*/
+    background: linear-gradient(#1a96c0, #0e74c0);
+    text-align: center;
+}
+
+header h1 a {
+    color: #FFF;
+}
+header h1 a:focus,
+header h1 a:hover {
+    color: #DDD;
+}
+
+main div.callout {
+    margin-top: 20px;
+    text-align: center;
+}
+
+main .invisible {
+    display: none;
+}
+
+main fieldset.fieldset legend {
+    background-color: transparent;
+}
+
+footer {
+    border-top: 1px solid #DDD;
+    text-align: center;
+}

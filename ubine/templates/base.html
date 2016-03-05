@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Stephen James">
+    <meta name="description" content="UBinE">
+    <title>{% block title %}{% endblock %} | UBinE</title>
+    <link rel="stylesheet" type="text/css" href="static/css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="static/css/app.css">
+</head>
+<body>
+    <header>
+        <div class="row">
+            <h1><a href="/">UBinE</a></h1>
+            <nav></nav>
+        </div>
+    </header>
+    <main class="row">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="row">
+        Created by Stephen James
+    </footer>
+    <script src="static/js/vendor/jquery.min.js"></script>
+    <script src="static/js/vendor/what-input.min.js"></script>
+    <script src="static/js/foundation.min.js"></script>
+    <script type="text/javascript">
+        $(document).foundation();
+    </script>
+</body>
+</html>
