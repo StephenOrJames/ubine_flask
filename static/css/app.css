@@ -63,6 +63,12 @@ main fieldset.fieldset legend {
     background-color: transparent;
 }
 
+main img#quad {
+    float: right;
+    height: 250px;
+    width: 200px;
+}
+
 /* Footer */
 footer {
     border-top: 1px solid #CCC;

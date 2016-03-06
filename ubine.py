@@ -86,7 +86,7 @@ def rooms():
         return render_template("rooms.html")
     else:
         building = get_building(quadrangle, number)
-        return render_template("rooms.html", quadrangle=quadrangle, number=number, building=building)
+        return render_template("rooms.html", quadrangle=quadrangle, number=number, building=building, floor=number//100)
 
 
 @app.errorhandler(404)

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Rooms{% endblock %}
 {% block content %}
-    <h2>Where is the room?</h2>
+    <h2>Locate a Room</h2>
 
     <div>
         The Ellicott Complex is a group of residence halls at the University at Buffalo, and is made up of six quadrangles.
@@ -11,7 +11,71 @@
     </div>
 
     {% if building %}
-        <div class="callout success">{{ number }} {{ quadrangle|replace("_", " ")|title }} is in building {{ building }}.</div>
+        <div class="callout success">
+            {{ number }} {{ quadrangle|replace("_", " ")|title }} is in building {{ building }} on floor {{ floor }}.
+        </div>
+        <div class="callout" style="text-align: left">
+            <img id="quad" alt="{{ quadrangle|replace("_", " ")|title }}" src="/static/img/quadrangles/{{ quadrangle }}.jpg">
+            The <a href="https://www.buffalo.edu/buildings/building?id={{ quadrangle }}">
+            {{ quadrangle|replace("_", " ")|title }} Quadrangle</a> has elevators in:
+        {% if quadrangle == "fargo" %}
+            <ul>
+                <li>Building 3</li>
+                <li>Building 4</li>
+                <li>Building 7</li>
+            </ul>
+        {% elif quadrangle == "porter" %}
+            <ul>
+                <li>Building 1/7</li>
+                <li>Building 4</li>
+                <li>Building 5</li>
+                <li>Building 6</li>
+            </ul>
+        {% elif quadrangle == "red_jacket" %}
+            <ul>
+                <li>Building 2</li>
+                <li>Building 4</li>
+                <li>Building 5</li>
+                <li>Building 6</li>
+            </ul>
+            Additionally:
+            <ul>
+                <li>Building 1 contains the offices of Campus Living-Residential Life (100) and Housing Operations (106).</li>
+                <li>Building 5 is adjacent to the Crossroads Culinary Center (C3).</li>
+            </ul>
+        {% elif quadrangle == "richmond" %}
+            <ul>
+                <li>Building 2</li>
+                <li>Building 3</li>
+                <li>Building 4</li>
+                <li>Building 6</li>
+            </ul>
+            Additionally:
+            <ul>
+                <li>Building 2 contains the offices of Counseling Services (120) and the Ellicott Area Office (123).</li>
+            </ul>
+        {% elif quadrangle == "spaulding" %}
+            <ul>
+                <li>Building 3</li>
+                <li>Building 4</li>
+                <li>Building 6</li>
+                <li>Building 7</li>
+            </ul>
+            Additionally:
+            <ul>
+                <li>Building 2 contains the office of Parking and Transportation Services (106).</li>
+            </ul>
+        {% elif quadrangle == "wilkeson" %}
+            <ul>
+                <li>Building 3</li>
+                <li>Building 4</li>
+                <li>Building 5</li>
+            </ul>
+        {% endif %}
+            <div style="clear: right; font-style: italic; text-align: right">
+                * The image above was created by and belongs to UB Campus Living.
+            </div>
+        </div>
     {% elif number or quadrangle %}
         <div class="callout alert">We could not find your search query.</div>
     {% endif %}
@@ -23,10 +87,12 @@
             <label>
                 Quadrangle
                 <select name="quadrangle" required="required">
-                    <option selected="selected" disabled="disabled">Select a Quadrangle</option>
+                    <option value="" selected="selected" disabled="disabled">Select a Quadrangle</option>
+                    <option value="fargo">Fargo</option>
                     <option value="porter">Porter</option>
                     <option value="red_jacket">Red Jacket</option>
-                    <!-- TODO: add the others -->
+                    <option value="richmond">Richmond</option>
+                    <option value="wilkeson">Wilkeson</option>
                 </select>
             </label>
 
