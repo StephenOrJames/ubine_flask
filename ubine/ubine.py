@@ -1,11 +1,14 @@
 from flask import Flask
 from flask import request
 from flask import render_template
+from flask_sqlalchemy import SQLAlchemy
 
 from rooms import get_building
 
 app = Flask(__name__)
-
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+mysqlconnector://root:@localhost/ubine"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+db = SQLAlchemy(app)
 
 @app.route("/")
 def index():
@@ -14,7 +17,8 @@ def index():
 
 @app.route("/events")
 def events():
-    return render_template("index.html")
+    events = __import__("events").Event.query.all()
+    return render_template("events.html", events=events)
 
 
 @app.route("/rooms")

@@ -36,6 +36,11 @@ main div.callout {
     text-align: center;
 }
 
+main .event {
+    border: 1px dashed #DDDDDD;
+    margin-bottom: 10px;
+}
+
 main fieldset.fieldset legend {
     background-color: transparent;
 }
