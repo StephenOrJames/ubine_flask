@@ -47,6 +47,7 @@ main div.callout {
 main .event-sect {
     border: 1px dashed dodgerblue;
     margin-bottom: 10px;
+    padding: 10px;
 }
 
 main .event-time {

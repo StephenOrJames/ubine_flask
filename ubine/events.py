@@ -1,4 +1,9 @@
+from datetime import datetime
 from ubine import db
+
+
+def time_str_to_obj(string):
+    return datetime.strptime(string, "%Y-%m-%dT%H:%M")
 
 
 class Event(db.Model):
