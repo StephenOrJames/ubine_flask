@@ -2,8 +2,15 @@ from datetime import datetime
 from ubine import db
 
 
+TIME_FORMAT = "%Y-%m-%dT%H:%M"
+
+
 def time_str_to_obj(string):
-    return datetime.strptime(string, "%Y-%m-%dT%H:%M")
+    return datetime.strptime(string, TIME_FORMAT)
+
+
+def time_obj_to_str(obj):
+    return datetime.strftime(obj, TIME_FORMAT)
 
 
 class Event(db.Model):
@@ -19,9 +26,3 @@ class Event(db.Model):
 
     def __repr__(self):
         return "<Event %d: %s>" % (self.id, self.title)
-
-
-# class User(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     ubitname = db.Column(db.String(8), unique=True)
-#     # password = db.Column

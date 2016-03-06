@@ -23,6 +23,7 @@
     {% for event in events %}
         <section class="event-sect">
             <h3>{{ event.title }}</h3>
+            <a style="float: right" href="/events/{{ event.id }}">Edit</a>
             <div class="event-time">{{ event.time }}</div>
             <div class="event-desc">{{ event.description }}</div>
         </section>

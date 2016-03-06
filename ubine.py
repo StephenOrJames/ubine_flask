@@ -40,10 +40,30 @@ def events():
     return render_template("events.html", events=events_list)
 
 
-@app.route("/events/add", methods=["GET", "POST"])
-def events_add():
+@app.route("/events/<event_id>", methods=["GET", "POST"])
+def events_modify(event_id):
+    event = __import__("events").Event.query.get(event_id)
+    if not event:
+        return redirect("/events")
     if request.method == "POST":
-        time =  __import__("events").time_str_to_obj(request.form["time"])
+        event.title = request.form["title"]
+        event.description = request.form["description"]
+        event.time = request.form["time"]
+        db.session.commit()
+        sparky.transmissions.send(
+            from_email=SPARKPOST_FROM_EMAIL,
+            recipient_list=SPARKPOST_RECIPIENT_LIST_ID,
+            subject="UBinE event: %s (modified)" % event.title,
+            html="<html><body><p>%s</p><p>%s</p></body></html>" % (str(event.time), event.description)
+        )
+        return redirect("/events")
+    return render_template("events_modify.html", event=event, time=__import__("events").time_obj_to_str(event.time))
+
+
+@app.route("/events/new", methods=["GET", "POST"])
+def events_new():
+    if request.method == "POST":
+        time = __import__("events").time_str_to_obj(request.form["time"])
         event = __import__("events").Event(request.form["title"], request.form["description"], time)
         db.session.add(event)
         db.session.commit()
@@ -54,7 +74,7 @@ def events_add():
             html="<html><body><p>%s</p><p>%s</p></body></html>" % (str(event.time), event.description)
         )
         return redirect("/events")
-    return render_template("events_add.html")
+    return render_template("events_new.html")
 
 
 @app.route("/events/subscribe", methods=["GET", "POST"])
