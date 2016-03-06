@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Add an Event{% endblock %}
+{% block content %}
+    <h2>Add an Event</h2>
+
+    <form method="post">
+        <fieldset class="fieldset">
+            <legend>Add an Event</legend>
+
+            <label>
+                Title
+                <input name="title" type="text" required="required">
+            </label>
+            <label>
+                Description
+                <textarea name="description" type="text" rows="5" required="required"></textarea>
+            </label>
+            <label>
+                Date and Time
+                <input name="time" type="datetime-local" required="required">
+            </label>
+            <button type="submit" class="button expanded">Add Event</button>
+        </fieldset>
+    </form>
+{% endblock %}

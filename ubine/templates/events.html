@@ -4,9 +4,10 @@
     <h2>Events</h2>
 
     {% for event in events %}
-        <section class="event">
+        <section class="event-sect">
             <h3>{{ event.title }}</h3>
-            {{ event.description }}
+            <div class="event-time">{{ event.time }}</div>
+            <div class="event-desc">{{ event.description }}</div>
         </section>
     {% endfor %}
 {% endblock %}

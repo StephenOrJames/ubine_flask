@@ -7,17 +7,23 @@
     <meta name="author" content="Stephen James">
     <meta name="description" content="UBinE">
     <title>{% block title %}{% endblock %} | UBinE</title>
-    <link rel="stylesheet" type="text/css" href="static/css/foundation.css">
-    <link rel="stylesheet" type="text/css" href="static/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/app.css">
 </head>
 <body>
     <header>
         <div class="row">
             <h1><a href="/">UBinE</a></h1>
             <nav>
-                <ul class="menu primary">
+                <ul class="dropdown menu" data-dropdown-menu>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/events">Events</a></li>
+                    <li>
+                        <a href="/events">Events</a>
+                        <ul class="menu">
+                            <li><a href="/events/add">Add</a></li>
+                            <li><a href="/events/subscribe">Subscribe</a></li>
+                        </ul>
+                    </li>
                     <li><a href="/rooms">Rooms</a></li>
                 </ul>
             </nav>
@@ -29,9 +35,9 @@
     <footer class="row">
         Created by Stephen James
     </footer>
-    <script src="static/js/vendor/jquery.min.js"></script>
-    <script src="static/js/vendor/what-input.min.js"></script>
-    <script src="static/js/foundation.min.js"></script>
+    <script src="/static/js/vendor/jquery.min.js"></script>
+    <script src="/static/js/vendor/what-input.min.js"></script>
+    <script src="/static/js/foundation.min.js"></script>
     <script type="text/javascript">
         $(document).foundation();
     </script>

@@ -8,7 +8,7 @@ header {
     text-align: center;
 }
 
-/* Main heading */
+/* Site heading */
 header h1 a {
     color: #FFF;
 }
@@ -20,15 +20,23 @@ header h1 a:hover {
 /* Navigation menu */
 header nav {
     background-color: dodgerblue;
-    border-bottom: 2px solid dodgerblue; /* remains when background-color is changed by :hover/:focus */
+    border-bottom: 3px solid dodgerblue; /* remains when background-color is changed by :hover/:focus */
 }
-header nav a {
+header nav .menu {
+    background-color: #2EB0FF;
+}
+header nav .menu a {
     color: #fff;
 }
-header nav a:focus,
-header nav a:hover {
+header nav .menu a:focus,
+header nav .menu a:hover {
     color: dodgerblue;
     background-color: #EEEEEE;
+}
+
+/* Page heading */
+header h2 {
+    margin-top: 30px;
 }
 
 main div.callout {
@@ -36,16 +44,28 @@ main div.callout {
     text-align: center;
 }
 
-main .event {
-    border: 1px dashed #DDDDDD;
+main .event-sect {
+    border: 1px dashed dodgerblue;
     margin-bottom: 10px;
+}
+
+main .event-time {
+    font-style: italic;
+    padding-left: 20px;
+}
+
+main .event-desc {
+    text-indent: hanging;
 }
 
 main fieldset.fieldset legend {
     background-color: transparent;
 }
 
+/* Footer */
 footer {
-    border-top: 1px solid #DDD;
+    border-top: 1px solid #CCC;
+    font-size: smaller;
+    font-style: italic;
     text-align: center;
 }

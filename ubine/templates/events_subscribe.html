@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Subscribe to Events{% endblock %}
+{% block content %}
+    <h2>Subscribe to Events</h2>
+
+    {% if success %}
+    <div class="callout success">You have successfully subscribed to UBinE events!</div>
+    {% endif %}
+
+    <form method="post">
+        <fieldset class="fieldset">
+            <legend>Subscribe to Events</legend>
+
+            <label>
+                Email address
+                <input name="email" type="email" required="required">
+            </label>
+
+            <!-- A special one for bots -->
+            <input name="bad-bot" type="hidden">
+
+            <button class="button expanded">Subscribe</button>
+        </fieldset>
+    </form>
+{% endblock %}
