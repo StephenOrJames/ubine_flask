@@ -13,7 +13,6 @@ db = SQLAlchemy(app)
 
 sparky = SparkPost(SPARKPOST_API_KEY)
 
-
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -21,15 +20,15 @@ def index():
 
 @app.route("/events")
 def events():
-    Event = __import__("events").Event
     time_str_to_obj = __import__("events").time_str_to_obj
     filter_before = request.args.get("before")
     filter_after = request.args.get("after")
-    events_list = Event.query.order_by(__import__("events").Event.time)
+    events_list = __import__("events").Event.query.order_by(__import__("events").Event.time)
     if filter_before or filter_after:
         if filter_before and filter_after:
             filter_before = time_str_to_obj(filter_before)
             filter_after = time_str_to_obj(filter_after)
+            print(filter_after < Event.time and Event.time < filter_before)
             events_list = Event.query.filter(filter_after < Event.time < filter_before)
         elif filter_before:
             filter_before = time_str_to_obj(filter_before)

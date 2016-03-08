@@ -1,5 +1,5 @@
 from datetime import datetime
-from ubine import db
+from app import db
 
 
 TIME_FORMAT = "%Y-%m-%dT%H:%M"
